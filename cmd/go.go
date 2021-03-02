@@ -1,3 +1,9 @@
+/*
+ * Project GoLogger
+ * Copyright (c) Alessio Saltarin 2021.
+ * Licensed under MIT Licence - See LICENSE
+ */
+
 package main
 
 import (
