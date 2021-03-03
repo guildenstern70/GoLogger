@@ -13,12 +13,11 @@ import (
 
 var nouns = []string{
 	"Monday",
-	"Tuesday",
 	"Wednesday",
 	"Thursday",
-	"Friday",
-	"Saturday",
-	"Sunday",
+	"yesterday",
+	"today",
+	"sentiment",
 	"conversation",
 	"road",
 	"reflection",
@@ -44,7 +43,7 @@ var nouns = []string{
 	"painting",
 	"agency",
 	"investment",
-	"warning",
+	"new",
 	"player",
 	"manager",
 	"mom",
@@ -65,6 +64,53 @@ var nouns = []string{
 	"indication",
 }
 
+var verbs = []string{
+	"associate",
+	"fear",
+	"spoil",
+	"exercise",
+	"guarantee",
+	"tap",
+	"release",
+	"appeal",
+	"discharge",
+	"swing",
+	"circulate",
+	"submit",
+	"house",
+	"confer",
+	"cast",
+	"shut",
+	"rip",
+	"educate",
+	"dare",
+	"disagree",
+	"drop",
+	"strip",
+	"age",
+	"wrap",
+	"choose",
+	"classify",
+	"fall",
+	"shout",
+	"describe",
+	"persist",
+}
+
+var conjunctions = []string{
+	"but",
+	"nonetheless",
+	"if",
+	"on the contrary",
+	"at the end",
+	"finally",
+	"that",
+	"so that",
+	"but",
+	"but",
+	"if",
+}
+
 func GetNoun(capitalize bool) string {
 	var idx = rand.Intn(len(nouns))
 	var noun = nouns[idx]
@@ -72,4 +118,22 @@ func GetNoun(capitalize bool) string {
 		return strings.Title(noun)
 	}
 	return noun
+}
+
+func GetVerb(thirdperson bool) string {
+	var idx = rand.Intn(len(verbs))
+	var verb = verbs[idx]
+	if thirdperson {
+		verb += "s"
+	}
+	return verb
+}
+
+func GetConjunctions(commabefore bool) string {
+	var idx = rand.Intn(len(conjunctions))
+	var conjunction = conjunctions[idx] + " "
+	if commabefore {
+		return ", " + conjunction
+	}
+	return " " + conjunction
 }
